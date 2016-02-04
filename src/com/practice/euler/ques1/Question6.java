@@ -1,39 +1,25 @@
 package com.practice.euler.ques1;
 
-import java.util.ArrayList;
-
 public class Question6 {
 
-	public static void main(String[] str) {
-		int num = 10001;
-		ArrayList<Integer> primeNumbers = new ArrayList<>();
-		int i = 1;
-		primeNumbers.add(2);
-		primeNumbers.add(3);
-		primeNumbers.add(5);
-		primeNumbers.add(7);
-		while (primeNumbers.size() < num) {
-			i++;
-			boolean doAdd = true;
-			for (int x = 0; x < primeNumbers.size(); x++) {
-				if (removeMultiple(primeNumbers.get(x), i)) {
-					doAdd = false;
-				}
-			}
-			if (doAdd)
-				primeNumbers.add(i);
-		}
+	/**
+	 * I have calculated a formula for this question. 1^2+2^2+3^2...n^2=
+	 * n(2n+1)(n+1)/6 (say A) (1+2+3+4...+n)^2 =(n(n+1)/2)^2 (say b) now I've
+	 * computed a-b =n(n+1)((3n^2-n-2)/12)
+	 * 
+	 */
+	public static void main(String args[]) {
+		int n = 100;// numberToBeComputed
+		int result =0;
+		
+		int firstPart = n*(n+1);
+		int secondPart = (3*n*n)-n-2;
+		int thirdPart = 12;
+		result = firstPart*secondPart;
+		result/=12;
+		
+		System.out.println("result is :  " + result);
 
-		// print all number
-		for (int j = 0; j < primeNumbers.size(); j++) {
-			System.out.print("   " + primeNumbers.get(j));
-		}
-
-		System.out.println(" \n size  " + primeNumbers.size());
-	}
-
-	private static boolean removeMultiple(int index, int value) {
-		return value % index == 0;
 	}
 
 }
