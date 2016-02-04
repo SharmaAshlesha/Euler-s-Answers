@@ -14,7 +14,6 @@ public class Question6 {
 		
 		int firstPart = n*(n+1);
 		int secondPart = (3*n*n)-n-2;
-		int thirdPart = 12;
 		result = firstPart*secondPart;
 		result/=12;
 		
